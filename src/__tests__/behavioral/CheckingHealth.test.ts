@@ -1,12 +1,14 @@
+import { SkillFactoryOptions } from '@sprucelabs/spruce-skill-booter'
 import {
 	BootCallback,
-	HealthCheckItem,
+	SettingsService,
 	Skill,
 	SkillFeature,
 } from '@sprucelabs/spruce-skill-utils'
 import { fake } from '@sprucelabs/spruce-test-fixtures'
 import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert } from '@sprucelabs/test-utils'
+import { PermissionHealthCheckItem } from '../../permission.types'
 
 @fake.login()
 export default class CheckingHealthTest extends AbstractSpruceFixtureTest {
@@ -24,8 +26,14 @@ export default class CheckingHealthTest extends AbstractSpruceFixtureTest {
 	@test()
 	protected static async isInHealthCheckIfInstalled() {
 		const health = await this.checkHealth('installed-skill')
-		assert.isTruthy(health.permission)
+		assert.isEqualDeep(health.permission, {
+			status: 'passed',
+			permissionContracts: [],
+		})
 	}
+
+	@test()
+	protected static async pullsPermsFromTypes() {}
 
 	private static async checkHealth(testDir: string) {
 		const skill = await this.SkillFromTestDir(testDir)
@@ -45,20 +53,28 @@ export default class CheckingHealthTest extends AbstractSpruceFixtureTest {
 
 function plugin(skill: Skill) {
 	const feature = new PermissionFeature(skill)
-	skill.registerFeature('view', feature)
+	skill.registerFeature('permission', feature)
 }
 
 class PermissionFeature implements SkillFeature {
-	public constructor(skill: Skill) {}
+	private skill: Skill
+	public constructor(skill: Skill) {
+		this.skill = skill
+	}
 
 	public async execute(): Promise<void> {
 		throw new Error('Method not implemented.')
 	}
-	public async checkHealth(): Promise<HealthCheckItem> {
-		throw new Error('Method not implemented.')
+
+	public async checkHealth(): Promise<PermissionHealthCheckItem> {
+		return {
+			status: 'passed',
+			permissionContracts: [],
+		}
 	}
 	public async isInstalled(): Promise<boolean> {
-		throw new Error('Method not implemented.')
+		const settings = new SettingsService(this.skill.rootDir)
+		return settings.isMarkedAsInstalled('permission')
 	}
 	public async destroy(): Promise<void> {
 		throw new Error('Method not implemented.')
@@ -66,7 +82,5 @@ class PermissionFeature implements SkillFeature {
 	public isBooted(): boolean {
 		throw new Error('Method not implemented.')
 	}
-	public onBoot(cb: BootCallback): void {
-		throw new Error('Method not implemented.')
-	}
+	public onBoot(cb: BootCallback): void {}
 }

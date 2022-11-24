@@ -6,4 +6,11 @@ declare module '@sprucelabs/spruce-skill-utils/build/types/skill.types' {
 	}
 }
 
-export interface PermissionHealthCheckItem extends HealthCheckItem {}
+export interface PermissionHealthCheckItem extends HealthCheckItem {
+	permissionContracts: PermissionHealthContract[]
+}
+
+export interface PermissionHealthContract {
+	contractId: string
+	permissionIds: string[]
+}
