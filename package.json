@@ -2,6 +2,12 @@
   "name": "spruce-permission-plugin",
   "version": "0.0.1",
   "repository": "https://github.com/sprucelabsai/spruce-permission-plugin.git",
+  "skill": {
+    "namespace": "spruce-permission-plugin",
+    "upgradeIgnoreList": [
+      "globby"
+    ]
+  },
   "scripts": {
     "build.ci": "yarn build.tsc && yarn build.resolve-paths && yarn lint",
     "build.dev": "yarn build.tsc --sourceMap ; yarn resolve-paths.lint",
@@ -25,6 +31,12 @@
     "watch.rebuild": "yarn clean.all && yarn && yarn watch.build.dev",
     "watch.tsc": "tsc -w"
   },
+  "dependencies": {
+    "@sprucelabs/mercury-types": "^37.2.15",
+    "@sprucelabs/schema": "^28.5.72",
+    "@sprucelabs/spruce-core-schemas": "^35.1.65",
+    "@sprucelabs/spruce-skill-utils": "^28.0.57"
+  },
   "devDependencies": {
     "@sprucelabs/jest-json-reporter": "^6.0.524",
     "@sprucelabs/resolve-path-aliases": "^1.1.134",
@@ -45,9 +57,6 @@
     "typescript": "^4.9.3"
   },
   "description": "Register permissions on the boot of your skill",
-  "skill": {
-    "namespace": "spruce-permission-plugin"
-  },
   "jest": {
     "testRunner": "jest-circus/runner",
     "maxWorkers": 4,
@@ -65,10 +74,5 @@
     "moduleNameMapper": {
       "^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
     }
-  },
-  "dependencies": {
-    "@sprucelabs/schema": "^28.5.72",
-    "@sprucelabs/spruce-core-schemas": "^35.1.65",
-    "@sprucelabs/spruce-skill-utils": "^28.0.57"
   }
 }
