@@ -1,20 +1,16 @@
-import { PermissionContract } from '@sprucelabs/mercury-types'
-import { SkillFactoryOptions } from '@sprucelabs/spruce-skill-booter'
-import { diskUtil, PkgService, Skill } from '@sprucelabs/spruce-skill-utils'
+import { PkgService, Skill } from '@sprucelabs/spruce-skill-utils'
 import { fake } from '@sprucelabs/spruce-test-fixtures'
-import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert, generateId } from '@sprucelabs/test-utils'
-import buildPermissionContractId from '../../buildPermissionContractId'
 import plugin from '../../permission.plugin'
 import {
 	PermissionHealthCheckItem,
 	PermissionHealthContract,
 } from '../../permission.types'
-import permissionDiskUtil from '../../permissionDiskUtil'
-import { renderPermissionTemplate } from '../support/renderPermissionTemplate'
+import AbstractPermissionTest from '../support/AbstractPermissionTest'
+import { generateHealthContractValues } from '../support/generateContractValues'
 
 @fake.login()
-export default class CheckingHealthTest extends AbstractSpruceFixtureTest {
+export default class CheckingHealthTest extends AbstractPermissionTest {
 	private static skill: Skill
 	private static namespace: string
 
@@ -82,39 +78,16 @@ export default class CheckingHealthTest extends AbstractSpruceFixtureTest {
 		contractId: string,
 		permissionIds: string[]
 	): PermissionHealthContract {
-		return {
-			contractId: buildPermissionContractId(contractId, this.namespace),
+		return generateHealthContractValues(
+			contractId,
 			permissionIds,
-		}
-	}
-
-	private static generateContractValues(permissions: string[] = []) {
-		const contractId = generateId()
-		const contract: PermissionContract = {
-			id: contractId,
-			name: generateId(),
-			permissions: permissions.map((id) => ({
-				id,
-				name: generateId(),
-				defaults: {},
-			})),
-		}
-		return contract
+			this.namespace
+		)
 	}
 
 	private static async assertHealthEquals(expected: PermissionHealthCheckItem) {
 		const health = await this.checkHealth()
 		assert.isEqualDeep(health.permission, expected)
-	}
-
-	private static saveContracts(contracts: PermissionContract[]) {
-		const perm = renderPermissionTemplate(contracts)
-
-		const dest = permissionDiskUtil.resolveCombinedPermissionPath(
-			diskUtil.resolveBuiltHashSprucePath(this.cwd)
-		)
-
-		diskUtil.writeFile(dest, perm)
 	}
 
 	private static async setupSkillAndSetNamespace() {
@@ -142,14 +115,5 @@ export default class CheckingHealthTest extends AbstractSpruceFixtureTest {
 
 	private static async checkHealth() {
 		return await this.skill.checkHealth()
-	}
-
-	protected static Skill(options?: SkillFactoryOptions) {
-		const { plugins = [plugin] } = options ?? {}
-
-		return super.Skill({
-			plugins,
-			...options,
-		})
 	}
 }

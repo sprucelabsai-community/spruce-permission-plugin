@@ -35,6 +35,7 @@
     "@sprucelabs/mercury-types": "^37.2.15",
     "@sprucelabs/schema": "^28.5.72",
     "@sprucelabs/spruce-core-schemas": "^35.1.65",
+    "@sprucelabs/spruce-event-plugin": "^52.2.11",
     "@sprucelabs/spruce-skill-utils": "^28.0.57"
   },
   "devDependencies": {
