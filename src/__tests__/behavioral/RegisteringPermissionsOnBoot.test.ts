@@ -21,7 +21,7 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
 	@test()
 	protected static async registersPermissionsFromCombinedFile() {
 		const contract = this.generateContractValues(['hey', 'there'])
-		this.saveContracts([contract])
+		await this.saveContracts([contract])
 
 		let passedPayload: SyncPermissionsTargetAndPayload['payload'] | undefined
 
