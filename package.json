@@ -8,10 +8,18 @@
       "globby"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build.ci": "yarn build.tsc && yarn build.resolve-paths && yarn lint",
     "build.dev": "yarn build.tsc --sourceMap ; yarn resolve-paths.lint",
     "build.copy-files": "mkdir -p build && rsync -avzq --exclude='*.ts' ./src/ ./build/",
+    "build.dist": "tsc --project tsconfig.dist.json && yarn build.resolve-paths && mv build esm && yarn build.esm-postbuild && yarn build.tsc && yarn build.resolve-paths && mv esm build/ && yarn clean.dist",
+    "build.esm-postbuild": "esm-postbuild --target esm --patterns '**/*.js'",
     "build.resolve-paths": "resolve-path-aliases --target build --patterns '**/*.js,**/*.d.ts'",
     "build.tsc": "yarn build.copy-files && tsc",
     "clean": "yarn clean.build",
@@ -23,9 +31,10 @@
     "lint.tsc": "tsc -p . --noEmit",
     "post.watch.build": "yarn build.copy-files && yarn build.resolve-paths",
     "rebuild": "yarn clean.all && yarn && yarn build.dev",
-    "update.dependencies": "yarn clean.dependencies && yarn",
+    "release": "semantic-release",
     "resolve-paths.lint": "yarn build.resolve-paths ; yarn lint",
     "test": "jest",
+    "update.dependencies": "yarn clean.dependencies && yarn",
     "watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn post.watch.build'",
     "watch.lint": "concurrently 'yarn lint' \"chokidar 'src/**/*' -c 'yarn lint.tsc'\"",
     "watch.rebuild": "yarn clean.all && yarn && yarn watch.build.dev",
@@ -39,8 +48,10 @@
     "@sprucelabs/spruce-skill-utils": "^28.0.57"
   },
   "devDependencies": {
+    "@sprucelabs/esm-postbuild": "^2.0.36",
     "@sprucelabs/jest-json-reporter": "^6.0.524",
     "@sprucelabs/resolve-path-aliases": "^1.1.134",
+    "@sprucelabs/semantic-release": "^4.0.8",
     "@sprucelabs/spruce-skill-booter": "^52.2.11",
     "@sprucelabs/spruce-test-fixtures": "^52.2.11",
     "@sprucelabs/test": "^7.7.390",
