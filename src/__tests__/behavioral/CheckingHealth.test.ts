@@ -48,7 +48,7 @@ export default class CheckingHealthTest extends AbstractPermissionTest {
 
 		const contract = this.generateContractValues()
 
-		this.saveContracts([contract])
+		await this.saveContracts([contract])
 
 		await this.assertHealthEquals({
 			status: 'passed',
@@ -57,13 +57,13 @@ export default class CheckingHealthTest extends AbstractPermissionTest {
 	}
 
 	@test()
-	protected static async pullsContractwithPerms() {
+	protected static async pullsContractwithPermIds() {
 		await this.setupSkillAndSetNamespace()
 
 		const contract1 = this.generateContractValues(['hey', 'there'])
 		const contract2 = this.generateContractValues(['what', 'the'])
 
-		this.saveContracts([contract1, contract2])
+		await this.saveContracts([contract1, contract2])
 
 		await this.assertHealthEquals({
 			status: 'passed',

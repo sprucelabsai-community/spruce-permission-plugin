@@ -33,7 +33,7 @@ export default abstract class AbstractPermissionTest extends AbstractSpruceFixtu
 		return contract
 	}
 
-	protected static saveContracts(contracts: PermissionContract[]) {
+	protected static async saveContracts(contracts: PermissionContract[]) {
 		const perm = renderPermissionTemplate(contracts)
 
 		const dest = permissionDiskUtil.resolveCombinedPermissionPath(
@@ -41,5 +41,8 @@ export default abstract class AbstractPermissionTest extends AbstractSpruceFixtu
 		)
 
 		diskUtil.writeFile(dest, perm)
+
+		//testing for circle
+		await this.wait(10)
 	}
 }
