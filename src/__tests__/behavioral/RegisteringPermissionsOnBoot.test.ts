@@ -25,7 +25,7 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
 
 		let passedPayload: SyncPermissionsTargetAndPayload['payload'] | undefined
 
-		this.eventFaker.fakeRegisterPermissionContracts(({ payload }) => {
+		await this.eventFaker.fakeRegisterPermissionContracts(({ payload }) => {
 			passedPayload = payload
 		})
 
@@ -42,7 +42,7 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
 
 	private static async assertAttemptedRegistration(expected: boolean) {
 		let wasHit = false
-		this.eventFaker.fakeRegisterPermissionContracts(() => {
+		await this.eventFaker.fakeRegisterPermissionContracts(() => {
 			wasHit = true
 		})
 
