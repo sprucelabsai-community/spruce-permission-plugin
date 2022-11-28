@@ -1,5 +1,5 @@
 {
-  "name": "spruce-permission-plugin",
+  "name": "@sprucelabs/spruce-permission-plugin",
   "version": "0.0.1",
   "repository": "https://github.com/sprucelabsai/spruce-permission-plugin.git",
   "skill": {
