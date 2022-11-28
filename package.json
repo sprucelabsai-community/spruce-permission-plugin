@@ -1,6 +1,6 @@
 {
   "name": "@sprucelabs/spruce-permission-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/sprucelabsai/spruce-permission-plugin.git",
   "skill": {
     "namespace": "spruce-permission-plugin",
@@ -61,6 +61,7 @@
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^2.0.36",
     "@sprucelabs/jest-json-reporter": "^6.0.524",
+    "@sprucelabs/jest-sheets-reporter": "^2.0.21",
     "@sprucelabs/resolve-path-aliases": "^1.1.134",
     "@sprucelabs/semantic-release": "^4.0.8",
     "@sprucelabs/spruce-skill-booter": "^52.2.11",
@@ -96,6 +97,20 @@
     ],
     "moduleNameMapper": {
       "^#spruce/(.*)$": "<rootDir>/build/.spruce/$1"
-    }
+    },
+    "reporters": [
+      "default",
+      [
+        "@sprucelabs/jest-sheets-reporter",
+        {
+          "sheetId": "1DoWM7mYgGDa-PJXptLomrZmbIBZiuxS1YiAsRXU2Gm0",
+          "worksheetId": 889384139,
+          "testMap": {
+            "registersPermissionsFromCombinedFile": "P12"
+          }
+        }
+      ],
+      "jest-junit"
+    ]
   }
 }
