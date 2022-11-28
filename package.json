@@ -109,8 +109,7 @@
             "registersPermissionsFromCombinedFile": "P12"
           }
         }
-      ],
-      "jest-junit"
+      ]
     ]
   }
 }
