@@ -82,7 +82,7 @@
   "description": "Register permissions on the boot of your skill",
   "jest": {
     "testRunner": "jest-circus/runner",
-    "maxWorkers": 1,
+    "maxWorkers": 4,
     "testTimeout": 120000,
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
