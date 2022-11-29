@@ -1,6 +1,6 @@
 {
   "name": "@sprucelabs/spruce-permission-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "https://github.com/sprucelabsai/spruce-permission-plugin.git",
   "skill": {
     "namespace": "spruce-permission-plugin",
@@ -109,8 +109,7 @@
             "registersPermissionsFromCombinedFile": "P12"
           }
         }
-      ],
-      "jest-junit"
+      ]
     ]
   }
 }
