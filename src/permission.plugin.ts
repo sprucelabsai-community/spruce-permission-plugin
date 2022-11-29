@@ -4,6 +4,7 @@ import {
 	AuthService,
 	BootCallback,
 	diskUtil,
+	Log,
 	SettingsService,
 	Skill,
 	SkillFeature,
@@ -15,8 +16,10 @@ import permissionDiskUtil from './utilities/permissionDiskUtil'
 export class PermissionFeature implements SkillFeature {
 	private skill: Skill
 	private bootHandler?: BootCallback
+	private log: Log
 	public constructor(skill: Skill) {
 		this.skill = skill
+		this.log = skill.buildLog('Permission.Feature')
 	}
 
 	public async execute(): Promise<void> {
@@ -24,6 +27,12 @@ export class PermissionFeature implements SkillFeature {
 			const events = this.skill.getFeatureByCode('event') as EventFeature
 			const client = await events.connectToApi()
 			const contracts = this.importContracts()
+
+			this.log.info(
+				`Syncing ${contracts.length} permission contract${
+					contracts.length === 1 ? '' : 's'
+				}`
+			)
 
 			await client.emitAndFlattenResponses(
 				'sync-permission-contracts::v2020_12_25',
@@ -33,6 +42,8 @@ export class PermissionFeature implements SkillFeature {
 					},
 				}
 			)
+
+			this.log.info(`Done syncing permission contracts`)
 		}
 		await this.bootHandler?.()
 	}
