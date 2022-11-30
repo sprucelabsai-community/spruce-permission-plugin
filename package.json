@@ -59,7 +59,6 @@
     "@sprucelabs/spruce-core-schemas": "^35.1.66",
     "@sprucelabs/spruce-event-plugin": "^52.3.1",
     "@sprucelabs/spruce-event-utils": "^29.2.20",
-    "@sprucelabs/spruce-permission-plugin": "^0.1.0",
     "@sprucelabs/spruce-skill-utils": "^28.1.0"
   },
   "devDependencies": {
