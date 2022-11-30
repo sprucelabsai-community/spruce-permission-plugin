@@ -36,9 +36,10 @@ export default abstract class AbstractPermissionTest extends AbstractSpruceFixtu
 	protected static async saveContracts(contracts: PermissionContract[]) {
 		const perm = renderPermissionTemplate(contracts)
 
-		const dest = permissionDiskUtil.resolveCombinedPermissionPath(
-			diskUtil.resolveBuiltHashSprucePath(this.cwd)
-		)
+		const dest =
+			permissionDiskUtil.resolveCombinedPermissionPath(
+				diskUtil.resolveBuiltHashSprucePath(this.cwd)
+			) + '.js'
 
 		diskUtil.writeFile(dest, perm)
 

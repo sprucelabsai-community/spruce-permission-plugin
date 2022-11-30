@@ -68,10 +68,11 @@ export class PermissionFeature implements SkillFeature {
 	}
 	private importContracts(): PermissionContract[] {
 		const path = permissionDiskUtil.resolveCombinedPermissionPath(
-			diskUtil.resolveBuiltHashSprucePath(this.skill.activeDir)
+			this.skill.rootDir
 		)
 
 		let contracts: PermissionContract[] = []
+
 		if (diskUtil.doesFileExist(path)) {
 			contracts = require(path).default
 		}

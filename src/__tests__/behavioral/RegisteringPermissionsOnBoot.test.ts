@@ -11,6 +11,7 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
 	protected static async beforeEach() {
 		await super.beforeEach()
 		this.skill = await this.SkillFromTestDir('installed-skill')
+		process.env.SHOULD_REGISTER_PERMISSIONS = 'true'
 	}
 
 	@test()
