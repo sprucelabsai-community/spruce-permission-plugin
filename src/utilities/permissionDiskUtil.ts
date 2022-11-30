@@ -10,7 +10,9 @@ const permissionDiskUtil = {
 			)
 
 			return match
-		} catch {}
+		} catch {
+			/* Empty */
+		}
 
 		return diskUtil.resolvePath(cwd, 'permissions', 'permissions')
 	},
