@@ -66,6 +66,7 @@ export class PermissionFeature implements SkillFeature {
 			})),
 		}
 	}
+
 	private importContracts(): PermissionContract[] {
 		const path = permissionDiskUtil.resolveCombinedPermissionPath(
 			this.skill.rootDir
@@ -83,7 +84,9 @@ export class PermissionFeature implements SkillFeature {
 		const settings = new SettingsService(this.skill.rootDir)
 		return settings.isMarkedAsInstalled('permission')
 	}
+
 	public async destroy(): Promise<void> {}
+
 	public isBooted(): boolean {
 		return false
 	}
