@@ -1,6 +1,6 @@
 {
   "name": "@sprucelabs/spruce-permission-plugin",
-  "version": "0.1.139",
+  "version": "0.2.3",
   "repository": "https://github.com/sprucelabsai/spruce-permission-plugin.git",
   "skill": {
     "namespace": "spruce-permission-plugin",
@@ -61,7 +61,7 @@
     "@sprucelabs/spruce-core-schemas": "^35.1.93",
     "@sprucelabs/spruce-event-plugin": "^52.5.2",
     "@sprucelabs/spruce-event-utils": "^30.0.23",
-    "@sprucelabs/spruce-permission-plugin": "^0.1.138",
+    "@sprucelabs/spruce-permission-plugin": "^0.2.2",
     "@sprucelabs/spruce-skill-utils": "^28.1.17"
   },
   "devDependencies": {
