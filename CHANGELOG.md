@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v0.1.139...v0.2.0) (2022-12-17)
+
+
+### Features
+
+* authorizer moved here (out of heartwood skill) ([2dc050c](https://github.com/sprucelabsai/spruce-permission-plugin/commit/2dc050c))
+
 ## [0.1.139](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v0.1.138...v0.1.139) (2022-12-17)
 
 ## [0.1.138](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v0.1.137...v0.1.138) (2022-12-17)
