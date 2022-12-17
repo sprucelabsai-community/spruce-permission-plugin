@@ -3,9 +3,7 @@ import { PermissionContractId, PermissionId } from '@sprucelabs/mercury-types'
 import { fake, seed } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert } from '@sprucelabs/test-utils'
 import { errorAssert, generateId } from '@sprucelabs/test-utils'
-import AuthorizerImpl, {
-	GetResolvedContractTargetAndPayload,
-} from '../../authorizer/Authorizer'
+import { GetResolvedContractTargetAndPayload } from '../../authorizer/Authorizer'
 import AuthorizerFactory from '../../authorizer/AuthorizerFactory'
 import AbstractPermissionTest from '../support/AbstractPermissionTest'
 

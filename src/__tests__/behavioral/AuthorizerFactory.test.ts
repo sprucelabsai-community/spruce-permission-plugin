@@ -1,7 +1,4 @@
-import {
-	Authorizer,
-	AuthorizerCanOptions,
-} from '@sprucelabs/heartwood-view-controllers'
+import { Authorizer } from '@sprucelabs/heartwood-view-controllers'
 import { PermissionContractId, PermissionId } from '@sprucelabs/mercury-types'
 import { fake } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert, errorAssert } from '@sprucelabs/test-utils'
