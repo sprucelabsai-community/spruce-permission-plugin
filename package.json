@@ -52,6 +52,7 @@
     "watch.tsc": "tsc -w"
   },
   "dependencies": {
+    "@sprucelabs/error": "^5.0.555",
     "@sprucelabs/mercury-client": "^35.0.0",
     "@sprucelabs/mercury-core-events": "^15.0.106",
     "@sprucelabs/mercury-types": "^38.0.0",
