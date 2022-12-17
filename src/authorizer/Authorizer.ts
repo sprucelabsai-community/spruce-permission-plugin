@@ -2,25 +2,20 @@ import {
 	Authorizer,
 	AuthorizerCanOptions,
 } from '@sprucelabs/heartwood-view-controllers'
-import { MercuryClient } from '@sprucelabs/mercury-client'
+import { MercuryConnectFactory } from '@sprucelabs/mercury-client'
 import {
 	PermissionContractId,
 	PermissionId,
 	SpruceSchemas,
 } from '@sprucelabs/mercury-types'
 import { assertOptions } from '@sprucelabs/schema'
-import SpruceError from './errors/SpruceError'
+import SpruceError from '../errors/SpruceError'
 
 export default class AuthorizerImpl implements Authorizer {
-	private connectToApi: ConnectToApi
+	private connectToApi: MercuryConnectFactory
 
-	private constructor(connectToApi: ConnectToApi) {
+	public constructor(connectToApi: MercuryConnectFactory) {
 		this.connectToApi = connectToApi
-	}
-
-	public static Authorizer(connectToApi: ConnectToApi) {
-		assertOptions({ connectToApi }, ['connectToApi'])
-		return new this(connectToApi)
 	}
 
 	public async can<Id extends PermissionContractId>(
@@ -57,6 +52,5 @@ export default class AuthorizerImpl implements Authorizer {
 	}
 }
 
-export type ConnectToApi = () => Promise<MercuryClient>
 export type GetResolvedContractTargetAndPayload =
 	SpruceSchemas.Mercury.v2020_12_25.GetResolvedPermissionsContractEmitTargetAndPayload

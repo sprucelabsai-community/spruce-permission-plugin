@@ -1,35 +1,25 @@
+import { Authorizer } from '@sprucelabs/heartwood-view-controllers'
 import { PermissionContractId, PermissionId } from '@sprucelabs/mercury-types'
 import { fake, seed } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert } from '@sprucelabs/test-utils'
 import { errorAssert, generateId } from '@sprucelabs/test-utils'
 import AuthorizerImpl, {
 	GetResolvedContractTargetAndPayload,
-} from '../../Authorizer'
+} from '../../authorizer/Authorizer'
+import AuthorizerFactory from '../../authorizer/AuthorizerFactory'
 import AbstractPermissionTest from '../support/AbstractPermissionTest'
 
 @fake.login()
 export default class AuthorizerTest extends AbstractPermissionTest {
-	private static auth: AuthorizerImpl
+	private static auth: Authorizer
 	private static contractId: string
 
 	protected static async beforeEach() {
 		await super.beforeEach()
-		this.auth = AuthorizerImpl.Authorizer(async () => fake.getClient())
+		this.auth = AuthorizerFactory.Authorizer(async () => fake.getClient())
 		this.contractId = generateId()
 
 		await this.eventFaker.fakeGetResolvedPermissionsContract()
-	}
-
-	@test()
-	protected static async throwsWhenMissingRequired() {
-		const err = await assert.doesThrowAsync(() =>
-			//@ts-ignore
-			AuthorizerImpl.Authorizer()
-		)
-
-		errorAssert.assertError(err, 'MISSING_PARAMETERS', {
-			parameters: ['connectToApi'],
-		})
 	}
 
 	@test()
@@ -128,6 +118,9 @@ export default class AuthorizerTest extends AbstractPermissionTest {
 			id: badId,
 		})
 	}
+
+	@test()
+	protected static canDropInDifferentAuthorizerClass() {}
 
 	private static async assertResults(
 		ids: string[],

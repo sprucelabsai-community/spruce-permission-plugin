@@ -9,6 +9,7 @@ import {
 	Skill,
 	SkillFeature,
 } from '@sprucelabs/spruce-skill-utils'
+import AuthorizerFactory from './authorizer/AuthorizerFactory'
 import { PermissionHealthCheckItem } from './permission.types'
 import buildPermissionContractId from './utilities/buildPermissionContractId'
 import permissionDiskUtil from './utilities/permissionDiskUtil'
@@ -23,8 +24,11 @@ export class PermissionFeature implements SkillFeature {
 	}
 
 	public async execute(): Promise<void> {
+		const events = this.skill.getFeatureByCode('event') as EventFeature
+		const authorizer = AuthorizerFactory.Authorizer(() => events.connectToApi())
+		this.skill.updateContext('authorizer', authorizer)
+
 		if (this.shouldRegisterPermissions()) {
-			const events = this.skill.getFeatureByCode('event') as EventFeature
 			const client = await events.connectToApi()
 			const contracts = this.importContracts()
 
