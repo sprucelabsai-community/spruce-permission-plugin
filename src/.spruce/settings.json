@@ -9,7 +9,8 @@
     "test",
     "schema",
     "permission",
-    "event"
+    "event",
+    "error"
   ],
   "events": {
     "lastSync": {}
