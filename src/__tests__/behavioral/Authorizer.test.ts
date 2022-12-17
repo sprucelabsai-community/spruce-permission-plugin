@@ -14,10 +14,7 @@ export default class AuthorizerTest extends AbstractPermissionTest {
 
 	protected static async beforeEach() {
 		await super.beforeEach()
-		this.auth = AuthorizerImpl.Authorizer(
-			async () => fake.getClient(),
-			this.views.getScope()
-		)
+		this.auth = AuthorizerImpl.Authorizer(async () => fake.getClient())
 		this.contractId = generateId()
 
 		await this.eventFaker.fakeGetResolvedPermissionsContract()
@@ -31,7 +28,7 @@ export default class AuthorizerTest extends AbstractPermissionTest {
 		)
 
 		errorAssert.assertError(err, 'MISSING_PARAMETERS', {
-			parameters: ['connectToApi', 'scope'],
+			parameters: ['connectToApi'],
 		})
 	}
 
@@ -59,7 +56,9 @@ export default class AuthorizerTest extends AbstractPermissionTest {
 	@test()
 	@seed('organizations', 1)
 	protected static async passesCurrentOrgInTarget() {
-		const passedTargetAndPayload = await this.getTargetAndPayload()
+		const passedTargetAndPayload = await this.getTargetAndPayload({
+			organizationId: this.fakedOrganizations[0].id,
+		})
 		assert.isEqualDeep(passedTargetAndPayload?.target, {
 			organizationId: this.fakedOrganizations[0].id,
 		})
@@ -68,7 +67,9 @@ export default class AuthorizerTest extends AbstractPermissionTest {
 	@test()
 	@seed('locations', 1)
 	protected static async passesCurrentLocationInTarget() {
-		const passedTargetAndPayload = await this.getTargetAndPayload()
+		const passedTargetAndPayload = await this.getTargetAndPayload({
+			locationId: this.fakedLocations[0].id,
+		})
 		assert.isEqualDeep(passedTargetAndPayload?.target, {
 			locationId: this.fakedLocations[0].id,
 		})
@@ -150,7 +151,7 @@ export default class AuthorizerTest extends AbstractPermissionTest {
 		})
 	}
 
-	private static async getTargetAndPayload() {
+	private static async getTargetAndPayload(target?: Target) {
 		let passedTargetAndPayload: ResolvedTargetAndPayload | undefined
 
 		await this.eventFaker.fakeGetResolvedPermissionsContract(
@@ -159,16 +160,18 @@ export default class AuthorizerTest extends AbstractPermissionTest {
 			}
 		)
 
-		await this.can([])
+		await this.can([], target)
 		return passedTargetAndPayload
 	}
 
-	private static async can(permissionIds: string[]) {
+	private static async can(permissionIds: string[], target?: Target) {
 		return await this.auth.can({
 			contractId: this.contractId as PermissionContractId,
 			permissionIds: permissionIds as PermissionId<PermissionContractId>[],
+			target: target ?? undefined,
 		})
 	}
 }
 
-export type ResolvedTargetAndPayload = GetResolvedContractTargetAndPayload
+type ResolvedTargetAndPayload = GetResolvedContractTargetAndPayload
+type Target = ResolvedTargetAndPayload['target']

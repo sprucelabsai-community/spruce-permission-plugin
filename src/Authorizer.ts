@@ -1,7 +1,6 @@
 import {
 	Authorizer,
 	AuthorizerCanOptions,
-	Scope,
 } from '@sprucelabs/heartwood-view-controllers'
 import { MercuryClient } from '@sprucelabs/mercury-client'
 import {
@@ -14,35 +13,23 @@ import SpruceError from './errors/SpruceError'
 
 export default class AuthorizerImpl implements Authorizer {
 	private connectToApi: ConnectToApi
-	private scope: Scope
 
-	private constructor(connectToApi: ConnectToApi, scope: Scope) {
-		this.scope = scope
+	private constructor(connectToApi: ConnectToApi) {
 		this.connectToApi = connectToApi
 	}
 
-	public static Authorizer(connectToApi: ConnectToApi, scope: Scope) {
-		assertOptions({ connectToApi, scope }, ['connectToApi', 'scope'])
-		return new this(connectToApi, scope)
+	public static Authorizer(connectToApi: ConnectToApi) {
+		assertOptions({ connectToApi }, ['connectToApi'])
+		return new this(connectToApi)
 	}
 
 	public async can<Id extends PermissionContractId>(
 		options: AuthorizerCanOptions<Id>
 	): Promise<Record<PermissionId<Id>, boolean>> {
-		const { contractId, permissionIds } = assertOptions(
+		const { contractId, permissionIds, target } = assertOptions(
 			options as AuthorizerCanOptions<Id>,
 			['contractId', 'permissionIds']
 		)
-
-		const target: GetResolvedContractTargetAndPayload['target'] = {}
-
-		const location = await this.scope.getCurrentLocation()
-		if (location) {
-			target.locationId = location.id
-		} else {
-			const organization = await this.scope.getCurrentOrganization()
-			target.organizationId = organization?.id
-		}
 
 		const client = await this.connectToApi()
 		const [{ resolvedContract }] = await client.emitAndFlattenResponses(
