@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v1.0.0...v1.1.0) (2022-12-17)
+
+
+### Features
+
+* AuthorizerFactory now has a singleton available across the stack ([38c6d7d](https://github.com/sprucelabsai/spruce-permission-plugin/commit/38c6d7d))
+
 # [1.0.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v0.2.3...v1.0.0) (2022-12-17)
 
 
