@@ -1,3 +1,10 @@
+# [13.0.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v12.0.0...v13.0.0) (2022-12-18)
+
+
+### Breaking Changes
+
+* **auto-upgrade:** upgraded packages [upgrade-all] ([159b33e](https://github.com/sprucelabsai/spruce-permission-plugin/commit/159b33e))
+
 # [12.0.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v11.0.0...v12.0.0) (2022-12-18)
 
 
