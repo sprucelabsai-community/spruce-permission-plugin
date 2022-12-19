@@ -1,6 +1,9 @@
 import { PermissionContract } from '@sprucelabs/mercury-types'
 import { EventFeature } from '@sprucelabs/spruce-event-plugin'
-import { AuthorizerFactory } from '@sprucelabs/spruce-permission-utils'
+import {
+	AuthorizerFactory,
+	buildPermissionContractId,
+} from '@sprucelabs/spruce-permission-utils'
 import {
 	AuthService,
 	BootCallback,
@@ -11,7 +14,6 @@ import {
 	SkillFeature,
 } from '@sprucelabs/spruce-skill-utils'
 import { PermissionHealthCheckItem } from './permission.types'
-import buildPermissionContractId from './utilities/buildPermissionContractId'
 import permissionDiskUtil from './utilities/permissionDiskUtil'
 
 export class PermissionFeature implements SkillFeature {
@@ -25,7 +27,8 @@ export class PermissionFeature implements SkillFeature {
 
 	public async execute(): Promise<void> {
 		const events = this.skill.getFeatureByCode('event') as EventFeature
-		const authorizer = AuthorizerFactory.Authorizer(() => events.connectToApi())
+		AuthorizerFactory.setConnectToApi(() => events.connectToApi())
+		const authorizer = AuthorizerFactory.getInstance()
 		this.skill.updateContext('authorizer', authorizer)
 
 		if (this.shouldRegisterPermissions()) {
