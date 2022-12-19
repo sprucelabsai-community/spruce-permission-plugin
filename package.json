@@ -5,8 +5,13 @@
   "skill": {
     "namespace": "spruce-permission-plugin",
     "upgradeIgnoreList": [
-      "globby"
-    ]
+      "globby",
+      "@sprucelabs/spruce-permission-plugin",
+      "@sprucelabs/spruce-event-utils"
+    ],
+    "blockedCommands": {
+      "sync.listeners": "There are no listeners in this module."
+    }
   },
   "publishConfig": {
     "access": "public"
@@ -60,8 +65,7 @@
     "@sprucelabs/schema": "^28.5.88",
     "@sprucelabs/spruce-core-schemas": "^35.1.95",
     "@sprucelabs/spruce-event-plugin": "^52.5.4",
-    "@sprucelabs/spruce-event-utils": "^30.0.25",
-    "@sprucelabs/spruce-permission-plugin": "^20.0.0",
+    "@sprucelabs/spruce-permission-utils": "^0.2.0",
     "@sprucelabs/spruce-skill-utils": "^28.1.18"
   },
   "devDependencies": {

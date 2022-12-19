@@ -1,5 +1,6 @@
 import { PermissionContract } from '@sprucelabs/mercury-types'
 import { EventFeature } from '@sprucelabs/spruce-event-plugin'
+import { AuthorizerFactory } from '@sprucelabs/spruce-permission-utils'
 import {
 	AuthService,
 	BootCallback,
@@ -9,7 +10,6 @@ import {
 	Skill,
 	SkillFeature,
 } from '@sprucelabs/spruce-skill-utils'
-import AuthorizerFactory from './authorizer/AuthorizerFactory'
 import { PermissionHealthCheckItem } from './permission.types'
 import buildPermissionContractId from './utilities/buildPermissionContractId'
 import permissionDiskUtil from './utilities/permissionDiskUtil'
