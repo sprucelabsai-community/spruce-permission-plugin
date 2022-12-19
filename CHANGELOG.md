@@ -1,3 +1,10 @@
+# [22.0.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v21.0.0...v22.0.0) (2022-12-19)
+
+
+### Breaking Changes
+
+* authorizer removed ([730255a](https://github.com/sprucelabsai/spruce-permission-plugin/commit/730255a))
+
 # [21.0.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v20.0.0...v21.0.0) (2022-12-19)
 
 
