@@ -1,3 +1,5 @@
+## [22.0.114](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v22.0.113...v22.0.114) (2023-01-18)
+
 ## [22.0.113](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v22.0.112...v22.0.113) (2023-01-17)
 
 ## [22.0.112](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v22.0.111...v22.0.112) (2023-01-17)
