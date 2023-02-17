@@ -1,6 +1,6 @@
 {
   "name": "@sprucelabs/spruce-permission-plugin",
-  "version": "23.0.34",
+  "version": "23.0.35",
   "repository": "https://github.com/sprucelabsai/spruce-permission-plugin.git",
   "skill": {
     "namespace": "spruce-permission-plugin",
