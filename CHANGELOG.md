@@ -1,3 +1,10 @@
+# [24.0.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v23.0.45...v24.0.0) (2023-02-23)
+
+
+### Breaking Changes
+
+* upgrade ([d56335a](https://github.com/sprucelabsai/spruce-permission-plugin/commit/d56335a))
+
 ## [23.0.45](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v23.0.44...v23.0.45) (2023-02-22)
 
 ## [23.0.44](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v23.0.43...v23.0.44) (2023-02-22)
