@@ -13,7 +13,7 @@ import {
 	Skill,
 	SkillFeature,
 } from '@sprucelabs/spruce-skill-utils'
-import { PermissionHealthCheckItem } from './permission.types'
+import { PermissionHealthCheckItem, Resolve } from './permission.types'
 import permissionDiskUtil from './utilities/permissionDiskUtil'
 
 export class PermissionFeature implements SkillFeature {
@@ -32,6 +32,13 @@ export class PermissionFeature implements SkillFeature {
 		this.skill.updateContext('authorizer', authorizer)
 
 		if (this.shouldRegisterPermissions()) {
+			let resolvePreReq: Resolve = () => {}
+			events.addPreReq(
+				new Promise((r) => {
+					resolvePreReq = r as Resolve
+				})
+			)
+
 			const client = await events.connectToApi()
 			const contracts = this.importContracts()
 
@@ -51,7 +58,9 @@ export class PermissionFeature implements SkillFeature {
 			)
 
 			this.log.info(`Done syncing permission contracts`)
+			resolvePreReq()
 		}
+
 		await this.bootHandler?.()
 	}
 

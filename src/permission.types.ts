@@ -19,3 +19,5 @@ export interface PermissionHealthContract {
 	contractId: string
 	permissionIds: string[]
 }
+
+export type Resolve = () => void

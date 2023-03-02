@@ -6,12 +6,14 @@ export default class EventFaker {
 	private getResolvedContractResponse?: ResolvedContract
 
 	public async fakeRegisterPermissionContracts(
-		cb?: (targetAndPayload: SyncPermissionsTargetAndPayload) => void
+		cb?: (
+			targetAndPayload: SyncPermissionsTargetAndPayload
+		) => void | Promise<void>
 	) {
 		await eventFaker.on(
 			'sync-permission-contracts::v2020_12_25',
-			(targetAndPayload) => {
-				cb?.(targetAndPayload)
+			async (targetAndPayload) => {
+				await cb?.(targetAndPayload)
 
 				return {
 					contractRecords: [
