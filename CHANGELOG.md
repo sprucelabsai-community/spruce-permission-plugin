@@ -1,3 +1,10 @@
+# [26.1.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v26.0.4...v26.1.0) (2023-03-02)
+
+
+### Features
+
+* adds prereq to event plugin to keep it from registering events until permissions are synced ([9ee5e93](https://github.com/sprucelabsai/spruce-permission-plugin/commit/9ee5e93))
+
 ## [26.0.4](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v26.0.3...v26.0.4) (2023-03-02)
 
 ## [26.0.3](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v26.0.2...v26.0.3) (2023-03-02)
