@@ -30,7 +30,7 @@ export class PermissionFeature implements SkillFeature {
 		AuthorizerFactory.setConnectToApi(() => events.connectToApi())
 		const authorizer = AuthorizerFactory.getInstance()
 		this.skill.updateContext('authorizer', authorizer)
-		debugger
+
 		if (this.shouldRegisterPermissions()) {
 			let resolvePreReq: Resolve = () => {}
 			events.addPreReq(
