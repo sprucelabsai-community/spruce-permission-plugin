@@ -1,6 +1,6 @@
 import { EventFeature } from '@sprucelabs/spruce-event-plugin'
 import { Skill } from '@sprucelabs/spruce-skill-utils'
-import { fake } from '@sprucelabs/spruce-test-fixtures'
+import { eventFaker, fake } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert } from '@sprucelabs/test-utils'
 import permissionPlugin from '../../permission.plugin'
 import { Resolve } from '../../permission.types'
@@ -48,8 +48,7 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
 
 	@test()
 	protected static async addsPreReqToEventsPluginToWaitUntilAfterRegisteringPermissions() {
-		process.env.SHOULD_REGISTER_EVENTS_AND_LISTENERS = 'true'
-		process.env.SHOULD_CACHE_EVENT_REGISTRATIONS = 'false'
+		this.enableEventRegistration()
 
 		let resolve: Resolve = () => {}
 
@@ -76,6 +75,23 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
 		const { promise } = await this.bootWithSpyEventPlugin()
 		assert.isFalse(SpyEventFeature.wasAddPreReqInvoked)
 		await promise
+	}
+
+	@test()
+	protected static async shouldResolvePreReqOnError() {
+		await eventFaker.makeEventThrow('sync-permission-contracts::v2020_12_25')
+		try {
+			const { promise } = await this.bootWithSpyEventPlugin()
+			await promise
+		} catch {
+			/* empty */
+		}
+		assert.isTrue(SpyEventFeature.wasRegisterEventsInvoked)
+	}
+
+	private static enableEventRegistration() {
+		process.env.SHOULD_REGISTER_EVENTS_AND_LISTENERS = 'true'
+		process.env.SHOULD_CACHE_EVENT_REGISTRATIONS = 'false'
 	}
 
 	private static async bootWithSpyEventPlugin() {
