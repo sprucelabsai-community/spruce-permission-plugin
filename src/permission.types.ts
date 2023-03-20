@@ -1,4 +1,7 @@
-import { Authorizer } from '@sprucelabs/heartwood-view-controllers'
+import {
+	Authenticator,
+	Authorizer,
+} from '@sprucelabs/heartwood-view-controllers'
 import { HealthCheckItem } from '@sprucelabs/spruce-skill-utils'
 
 declare module '@sprucelabs/spruce-skill-utils/build/types/skill.types' {
@@ -8,6 +11,7 @@ declare module '@sprucelabs/spruce-skill-utils/build/types/skill.types' {
 
 	interface SkillContext {
 		authorizer: Authorizer
+		authenticator: Authenticator
 	}
 }
 
