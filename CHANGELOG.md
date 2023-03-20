@@ -1,3 +1,10 @@
+# [27.1.0](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v27.0.47...v27.1.0) (2023-03-20)
+
+
+### Features
+
+* authenticator now in skill context ([afbcd89](https://github.com/sprucelabsai/spruce-permission-plugin/commit/afbcd89))
+
 ## [27.0.47](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v27.0.46...v27.0.47) (2023-03-20)
 
 ## [27.0.46](https://github.com/sprucelabsai/spruce-permission-plugin/compare/v27.0.45...v27.0.46) (2023-03-20)
