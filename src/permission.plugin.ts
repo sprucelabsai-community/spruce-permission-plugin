@@ -1,4 +1,3 @@
-import { AuthenticatorImpl } from '@sprucelabs/heartwood-view-controllers'
 import { PermissionContract } from '@sprucelabs/mercury-types'
 import { EventFeature } from '@sprucelabs/spruce-event-plugin'
 import {
@@ -69,9 +68,7 @@ export class PermissionFeature implements SkillFeature {
 
 	private setupContext() {
 		const authorizer = AuthorizerFactory.getInstance()
-		const authenticator = AuthenticatorImpl.getInstance()
 		this.skill.updateContext('authorizer', authorizer)
-		this.skill.updateContext('authenticator', authenticator)
 	}
 
 	private shouldRegisterPermissions() {
