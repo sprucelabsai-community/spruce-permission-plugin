@@ -1,3 +1,10 @@
+# [28.0.0](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v27.1.11...v28.0.0) (2023-03-28)
+
+
+### Breaking Changes
+
+* **auto-upgrade:** upgraded packages [upgrade-all] ([8817285](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/8817285))
+
 ## [27.1.11](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v27.1.10...v27.1.11) (2023-03-28)
 
 ## [27.1.10](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v27.1.9...v27.1.10) (2023-03-27)
