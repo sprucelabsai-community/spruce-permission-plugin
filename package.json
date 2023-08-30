@@ -61,11 +61,11 @@
     "@sprucelabs/mercury-client": "^41.0.60",
     "@sprucelabs/mercury-core-events": "^22.0.56",
     "@sprucelabs/mercury-types": "^46.0.46",
-    "@sprucelabs/schema": "^29.0.40",
-    "@sprucelabs/spruce-core-schemas": "^39.0.54",
+    "@sprucelabs/schema": "^29.0.41",
+    "@sprucelabs/spruce-core-schemas": "^39.0.55",
     "@sprucelabs/spruce-event-plugin": "^60.0.88",
     "@sprucelabs/spruce-permission-utils": "^7.0.66",
-    "@sprucelabs/spruce-skill-utils": "^30.0.12"
+    "@sprucelabs/spruce-skill-utils": "^30.0.13"
   },
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^5.0.57",
