@@ -61,11 +61,11 @@
     "@sprucelabs/mercury-client": "^41.0.60",
     "@sprucelabs/mercury-core-events": "^22.0.56",
     "@sprucelabs/mercury-types": "^46.0.46",
-    "@sprucelabs/schema": "^29.0.38",
-    "@sprucelabs/spruce-core-schemas": "^39.0.53",
+    "@sprucelabs/schema": "^29.0.40",
+    "@sprucelabs/spruce-core-schemas": "^39.0.54",
     "@sprucelabs/spruce-event-plugin": "^60.0.88",
     "@sprucelabs/spruce-permission-utils": "^7.0.66",
-    "@sprucelabs/spruce-skill-utils": "^30.0.11"
+    "@sprucelabs/spruce-skill-utils": "^30.0.12"
   },
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^5.0.57",
@@ -76,7 +76,7 @@
     "@sprucelabs/spruce-skill-booter": "^60.0.88",
     "@sprucelabs/spruce-test-fixtures": "^60.0.88",
     "@sprucelabs/test": "^8.0.12",
-    "@sprucelabs/test-utils": "^4.0.31",
+    "@sprucelabs/test-utils": "^4.0.32",
     "@types/node": "^20.5.7",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.1",
