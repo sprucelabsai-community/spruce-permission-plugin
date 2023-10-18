@@ -56,15 +56,15 @@
     "watch.tsc": "tsc -w"
   },
   "dependencies": {
-    "@sprucelabs/error": "^5.1.32",
+    "@sprucelabs/error": "^5.1.33",
     "@sprucelabs/heartwood-view-controllers": "^107.2.85",
     "@sprucelabs/mercury-client": "^41.0.107",
-    "@sprucelabs/mercury-core-events": "^22.0.102",
-    "@sprucelabs/mercury-types": "^46.0.89",
+    "@sprucelabs/mercury-core-events": "^22.0.103",
+    "@sprucelabs/mercury-types": "^46.0.90",
     "@sprucelabs/schema": "^29.0.65",
-    "@sprucelabs/spruce-core-schemas": "^39.0.96",
-    "@sprucelabs/spruce-event-plugin": "^60.0.133",
-    "@sprucelabs/spruce-permission-utils": "^7.0.159",
+    "@sprucelabs/spruce-core-schemas": "^39.0.97",
+    "@sprucelabs/spruce-event-plugin": "^60.0.134",
+    "@sprucelabs/spruce-permission-utils": "^7.0.160",
     "@sprucelabs/spruce-skill-utils": "^30.0.47"
   },
   "devDependencies": {
@@ -73,8 +73,8 @@
     "@sprucelabs/jest-sheets-reporter": "^3.0.26",
     "@sprucelabs/resolve-path-aliases": "^1.1.249",
     "@sprucelabs/semantic-release": "^4.0.8",
-    "@sprucelabs/spruce-skill-booter": "^60.0.133",
-    "@sprucelabs/spruce-test-fixtures": "^60.0.133",
+    "@sprucelabs/spruce-skill-booter": "^60.0.134",
+    "@sprucelabs/spruce-test-fixtures": "^60.0.134",
     "@sprucelabs/test": "^8.0.19",
     "@sprucelabs/test-utils": "^4.0.54",
     "@types/node": "^20.8.6",
