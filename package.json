@@ -60,12 +60,12 @@
     "@sprucelabs/heartwood-view-controllers": "^107.2.85",
     "@sprucelabs/mercury-client": "^41.0.118",
     "@sprucelabs/mercury-core-events": "^22.0.116",
-    "@sprucelabs/mercury-types": "^46.0.103",
+    "@sprucelabs/mercury-types": "^46.0.104",
     "@sprucelabs/schema": "^29.0.74",
-    "@sprucelabs/spruce-core-schemas": "^39.0.109",
+    "@sprucelabs/spruce-core-schemas": "^39.0.110",
     "@sprucelabs/spruce-event-plugin": "^60.1.14",
-    "@sprucelabs/spruce-permission-utils": "^7.0.183",
-    "@sprucelabs/spruce-skill-utils": "^30.1.7"
+    "@sprucelabs/spruce-permission-utils": "^7.0.184",
+    "@sprucelabs/spruce-skill-utils": "^30.1.8"
   },
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^5.0.86",
