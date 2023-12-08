@@ -61,7 +61,7 @@
     "@sprucelabs/mercury-client": "^41.0.167",
     "@sprucelabs/mercury-core-events": "^22.0.165",
     "@sprucelabs/mercury-types": "^46.0.144",
-    "@sprucelabs/schema": "^29.2.1",
+    "@sprucelabs/schema": "^29.2.2",
     "@sprucelabs/spruce-core-schemas": "^39.0.151",
     "@sprucelabs/spruce-event-plugin": "^60.1.92",
     "@sprucelabs/spruce-permission-utils": "^7.0.280",
