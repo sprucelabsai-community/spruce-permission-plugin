@@ -57,14 +57,14 @@
   },
   "dependencies": {
     "@sprucelabs/error": "^5.1.62",
-    "@sprucelabs/heartwood-view-controllers": "^108.40.60",
+    "@sprucelabs/heartwood-view-controllers": "^108.40.61",
     "@sprucelabs/mercury-client": "^41.0.260",
     "@sprucelabs/mercury-core-events": "^22.1.64",
     "@sprucelabs/mercury-types": "^46.0.209",
     "@sprucelabs/schema": "^29.3.11",
     "@sprucelabs/spruce-core-schemas": "^39.0.214",
     "@sprucelabs/spruce-event-plugin": "^60.1.213",
-    "@sprucelabs/spruce-permission-utils": "^7.0.419",
+    "@sprucelabs/spruce-permission-utils": "^7.0.420",
     "@sprucelabs/spruce-skill-utils": "^30.1.89"
   },
   "devDependencies": {
