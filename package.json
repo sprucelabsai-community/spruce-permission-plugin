@@ -58,7 +58,7 @@
   "dependencies": {
     "@sprucelabs/error": "^5.1.108",
     "@sprucelabs/heartwood-view-controllers": "^109.7.42",
-    "@sprucelabs/mercury-client": "^41.0.384",
+    "@sprucelabs/mercury-client": "^41.0.385",
     "@sprucelabs/mercury-core-events": "^22.2.88",
     "@sprucelabs/mercury-types": "^46.0.300",
     "@sprucelabs/schema": "^29.4.60",
@@ -75,9 +75,9 @@
     "@sprucelabs/semantic-release": "^4.0.8",
     "@sprucelabs/spruce-skill-booter": "^61.1.33",
     "@sprucelabs/spruce-test-fixtures": "^61.1.33",
-    "@sprucelabs/test": "^8.0.50",
+    "@sprucelabs/test": "^8.0.51",
     "@sprucelabs/test-utils": "^4.0.157",
-    "@types/node": "^20.12.4",
+    "@types/node": "^20.12.7",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
@@ -87,7 +87,7 @@
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "tsc-watch": "^6.2.0",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   },
   "description": "Register permissions on the boot of your skill",
   "jest": {
