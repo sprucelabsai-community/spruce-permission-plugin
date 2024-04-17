@@ -12,38 +12,38 @@ import { renderPermissionTemplate } from './renderPermissionTemplate'
 process.env.SHOULD_REGISTER_EVENTS_AND_LISTENERS = 'false'
 
 export default abstract class AbstractPermissionTest extends AbstractSpruceFixtureTest {
-	protected static eventFaker: EventFaker
+    protected static eventFaker: EventFaker
 
-	protected static async beforeEach() {
-		await super.beforeEach()
-		this.eventFaker = new EventFaker()
-	}
+    protected static async beforeEach() {
+        await super.beforeEach()
+        this.eventFaker = new EventFaker()
+    }
 
-	protected static async Skill(options?: SkillFactoryOptions) {
-		const { plugins = [events, plugin] } = options ?? {}
+    protected static async Skill(options?: SkillFactoryOptions) {
+        const { plugins = [events, plugin] } = options ?? {}
 
-		return super.Skill({
-			plugins,
-			...options,
-		})
-	}
+        return super.Skill({
+            plugins,
+            ...options,
+        })
+    }
 
-	protected static generateContractValues(permissions: string[] = []) {
-		const contract: PermissionContract = generateContractValues(permissions)
-		return contract
-	}
+    protected static generateContractValues(permissions: string[] = []) {
+        const contract: PermissionContract = generateContractValues(permissions)
+        return contract
+    }
 
-	protected static async saveContracts(contracts: PermissionContract[]) {
-		const perm = renderPermissionTemplate(contracts)
+    protected static async saveContracts(contracts: PermissionContract[]) {
+        const perm = renderPermissionTemplate(contracts)
 
-		const dest =
-			permissionDiskUtil.resolveCombinedPermissionPath(
-				diskUtil.resolveBuiltHashSprucePath(this.cwd)
-			) + '.js'
+        const dest =
+            permissionDiskUtil.resolveCombinedPermissionPath(
+                diskUtil.resolveBuiltHashSprucePath(this.cwd)
+            ) + '.js'
 
-		diskUtil.writeFile(dest, perm)
+        diskUtil.writeFile(dest, perm)
 
-		//testing for circle
-		await this.wait(10)
-	}
+        //testing for circle
+        await this.wait(10)
+    }
 }
