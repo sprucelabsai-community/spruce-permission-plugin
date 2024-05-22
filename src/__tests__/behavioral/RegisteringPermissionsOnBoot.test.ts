@@ -1,8 +1,8 @@
 import { EventFeature } from '@sprucelabs/spruce-event-plugin'
 import { Skill } from '@sprucelabs/spruce-skill-utils'
-import { eventFaker, fake } from '@sprucelabs/spruce-test-fixtures'
+import { TestRouter, eventFaker, fake } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert } from '@sprucelabs/test-utils'
-import permissionPlugin from '../../permission.plugin'
+import permissionPlugin, { PermissionFeature } from '../../permission.plugin'
 import { Resolve } from '../../permission.types'
 import AbstractPermissionTest from '../support/AbstractPermissionTest'
 import { SyncPermissionsTargetAndPayload } from '../support/EventFaker'
@@ -93,6 +93,29 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
         assert.isTrue(SpyEventFeature.wasRegisterEventsInvoked)
     }
 
+    @test()
+    protected static async destroyingEndsPreReq() {
+        const skill = await this.Skill()
+        const events = new SpyEventFeature(skill)
+        const permissions = new PermissionFeature(skill)
+
+        skill.registerFeature('event', events)
+        skill.registerFeature('permission', permissions)
+
+        events.connectToApi = async () => {
+            await new Promise(() => {})
+            return {} as any
+        }
+
+        void permissions.execute()
+
+        await this.wait(1)
+
+        await permissions.destroy()
+
+        await Promise.all(events.preReqs)
+    }
+
     private static enableEventRegistration() {
         process.env.SHOULD_REGISTER_EVENTS_AND_LISTENERS = 'true'
         process.env.SHOULD_CACHE_EVENT_REGISTRATIONS = 'false'
@@ -124,10 +147,10 @@ export default class RegisteringPermissionsOnBootTest extends AbstractPermission
     }
 }
 
-//@ts-ignore remove this when you see it (upgrade should have set methods to protected)
 class SpyEventFeature extends EventFeature {
     public static wasRegisterEventsInvoked = false
     public static wasAddPreReqInvoked = false
+    public preReqs: Promise<unknown>[] = []
 
     public async reRegisterEvents() {
         SpyEventFeature.wasRegisterEventsInvoked = true
@@ -135,6 +158,7 @@ class SpyEventFeature extends EventFeature {
 
     public addPreReq(req: Promise<unknown>): void {
         SpyEventFeature.wasAddPreReqInvoked = true
+        this.preReqs.push(req)
         return super.addPreReq(req)
     }
 }

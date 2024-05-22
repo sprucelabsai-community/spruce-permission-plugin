@@ -20,6 +20,8 @@ export class PermissionFeature implements SkillFeature {
     private skill: Skill
     private bootHandler?: BootCallback
     private log: Log
+    private resolvePreReq?: Resolve = () => {}
+
     public constructor(skill: Skill) {
         this.skill = skill
         this.log = skill.buildLog('Permission.Feature')
@@ -31,10 +33,9 @@ export class PermissionFeature implements SkillFeature {
         this.setupContext()
 
         if (this.shouldRegisterPermissions()) {
-            let resolvePreReq: Resolve = () => {}
             events.addPreReq(
                 new Promise((r) => {
-                    resolvePreReq = r as Resolve
+                    this.resolvePreReq = r as Resolve
                 })
             )
 
@@ -59,7 +60,7 @@ export class PermissionFeature implements SkillFeature {
 
                 this.log.info(`Done syncing permission contracts`)
             } finally {
-                resolvePreReq()
+                this.resolvePreReq?.()
             }
         }
 
@@ -108,7 +109,9 @@ export class PermissionFeature implements SkillFeature {
         return settings.isMarkedAsInstalled('permission')
     }
 
-    public async destroy(): Promise<void> {}
+    public async destroy(): Promise<void> {
+        this.resolvePreReq?.()
+    }
 
     public isBooted(): boolean {
         return false
