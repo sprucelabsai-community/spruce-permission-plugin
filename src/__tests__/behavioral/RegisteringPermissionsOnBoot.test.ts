@@ -1,6 +1,6 @@
 import { EventFeature } from '@sprucelabs/spruce-event-plugin'
 import { Skill } from '@sprucelabs/spruce-skill-utils'
-import { TestRouter, eventFaker, fake } from '@sprucelabs/spruce-test-fixtures'
+import { eventFaker, fake } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert } from '@sprucelabs/test-utils'
 import permissionPlugin, { PermissionFeature } from '../../permission.plugin'
 import { Resolve } from '../../permission.types'
