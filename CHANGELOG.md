@@ -1,3 +1,10 @@
+# [31.1.0](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v31.0.676...v31.1.0) (2024-11-04)
+
+
+### Features
+
+* upgarde ([d49a4f5](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/d49a4f5))
+
 ## [31.0.676](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v31.0.675...v31.0.676) (2024-11-02)
 
 ## [31.0.675](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v31.0.674...v31.0.675) (2024-11-02)
