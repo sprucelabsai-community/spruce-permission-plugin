@@ -1,3 +1,5 @@
+## [39.0.1](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v39.0.0...v39.0.1) (2025-07-06)
+
 # [39.0.0](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v38.0.37...v39.0.0) (2025-07-03)
 
 
