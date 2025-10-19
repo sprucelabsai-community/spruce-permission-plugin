@@ -57,14 +57,14 @@
   "dependencies": {
     "@sprucelabs/error": "^7.1.36",
     "@sprucelabs/heartwood-view-controllers": "^126.12.29",
-    "@sprucelabs/mercury-client": "^43.1.3",
-    "@sprucelabs/mercury-core-events": "^27.4.34",
-    "@sprucelabs/mercury-types": "^48.0.134",
-    "@sprucelabs/schema": "^32.3.2",
-    "@sprucelabs/spruce-core-schemas": "^41.3.28",
+    "@sprucelabs/mercury-client": "^43.1.4",
+    "@sprucelabs/mercury-core-events": "^27.4.35",
+    "@sprucelabs/mercury-types": "^48.0.135",
+    "@sprucelabs/schema": "^32.3.9",
+    "@sprucelabs/spruce-core-schemas": "^41.3.32",
     "@sprucelabs/spruce-event-plugin": "^74.2.10",
-    "@sprucelabs/spruce-permission-utils": "^19.0.117",
-    "@sprucelabs/spruce-skill-utils": "^32.1.8"
+    "@sprucelabs/spruce-permission-utils": "^19.0.118",
+    "@sprucelabs/spruce-skill-utils": "^32.1.9"
   },
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^7.0.47",
@@ -74,7 +74,7 @@
     "@sprucelabs/spruce-skill-booter": "^74.2.10",
     "@sprucelabs/spruce-test-fixtures": "^74.2.10",
     "@sprucelabs/test": "^10.0.25",
-    "@sprucelabs/test-utils": "^6.0.111",
+    "@sprucelabs/test-utils": "^6.0.113",
     "@types/node": "^24.8.1",
     "chokidar-cli": "^3.0.0",
     "eslint": "^9.38.0",
