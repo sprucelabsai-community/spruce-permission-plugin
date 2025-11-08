@@ -1,3 +1,8 @@
+## <small>45.0.139 (2025-11-08)</small>
+
+* Automated CI/CD permissions update ([cca0620](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/cca0620))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([ec9f6ef](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/ec9f6ef))
+
 ## [45.0.138](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v45.0.137...v45.0.138) (2025-10-31)
 
 ## [45.0.137](https://github.com/sprucelabsai-community/spruce-permission-plugin/compare/v45.0.136...v45.0.137) (2025-10-31)
