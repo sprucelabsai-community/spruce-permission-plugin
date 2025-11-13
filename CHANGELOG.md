@@ -1,3 +1,8 @@
+## <small>46.0.8 (2025-11-13)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([bc27eec](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/bc27eec))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([2bcb347](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/2bcb347))
+
 ## <small>46.0.7 (2025-11-12)</small>
 
 * chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([93a2f7b](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/93a2f7b))
