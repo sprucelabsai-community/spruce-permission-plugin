@@ -1,3 +1,7 @@
+## 48.0.0 (2025-11-14)
+
+* major: upgrade ([c5ebfb5](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/c5ebfb5))
+
 ## 47.0.0 (2025-11-14)
 
 * major: upgrade ([5619c9d](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/5619c9d))
