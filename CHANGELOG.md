@@ -1,3 +1,7 @@
+## 49.0.0 (2026-01-08)
+
+* major: upgrade dependencies ([bcc8d87](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/bcc8d87))
+
 ## 48.1.0 (2026-01-07)
 
 * feat: add exports field for proper ESM support in Node.js ([bc17da8](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/bc17da8))
