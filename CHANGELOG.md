@@ -1,3 +1,8 @@
+## <small>49.0.10 (2026-02-18)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([78e35a6](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/78e35a6))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([d70d7b4](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/d70d7b4))
+
 ## <small>49.0.9 (2026-02-18)</small>
 
 * chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([deb796c](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/deb796c))
