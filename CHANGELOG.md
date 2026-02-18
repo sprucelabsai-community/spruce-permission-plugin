@@ -1,3 +1,8 @@
+## <small>49.0.7 (2026-02-18)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([3414612](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/3414612))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([a2a7453](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/a2a7453))
+
 ## <small>49.0.6 (2026-02-18)</small>
 
 * patch: upgrade dependencies and fix lint errors ([2cbdaec](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/2cbdaec))
