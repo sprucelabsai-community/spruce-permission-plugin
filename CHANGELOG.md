@@ -1,3 +1,7 @@
+## <small>49.0.23 (2026-04-09)</small>
+
+* chore: add rootDir and types to tsconfig for TypeScript 6 compatibility ([c33c8ae](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/c33c8ae))
+
 ## <small>49.0.22 (2026-03-13)</small>
 
 * chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([85555b4](https://github.com/sprucelabsai-community/spruce-permission-plugin/commit/85555b4))
